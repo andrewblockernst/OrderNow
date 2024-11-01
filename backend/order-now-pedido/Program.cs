@@ -1,16 +1,25 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Net.Http;
-using System.Net.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregamos el contexto de base de datos
+// Agregar contexto de base de datos
 builder.Services.AddDbContext<OrderContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SDBOrderNow")));
 
-// Agregamos el servicio de orden
+// Agregar el servicio de orden
 builder.Services.AddScoped<OrderService>();
+
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin() // Permitir cualquier origen
+               .AllowAnyMethod() // Permitir cualquier método (GET, POST, etc.)
+               .AllowAnyHeader(); // Permitir cualquier encabezado
+    });
+});
 
 // Configuración de HttpClient
 builder.Services.AddHttpClient<OrderService>();
@@ -23,15 +32,6 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderNow", Version = "v1" });
 });
 
-// Configuración de CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllFrontend",
-        policy => policy.WithOrigins("http://127.0.0.1:5500/frontend/index.html") 
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
-});
-
 var app = builder.Build();
 
 // Middleware de desarrollo y Swagger
@@ -41,11 +41,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Middleware de CORS
+app.UseCors("AllowAllOrigins"); // Aplicar la política de CORS
+
 // Middleware de HTTPS
 app.UseHttpsRedirection();
-
-// Habilitar CORS con la política definida
-app.UseCors("AllowAllFrontend");
 
 app.MapControllers(); // Mapear los controladores
 app.Run();
