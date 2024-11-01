@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "order-now-pedido", "order-now-pedido.csproj", "{9A7FDDF7-7DF4-4ACD-9143-D481CCC77F5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A7FDDF7-7DF4-4ACD-9143-D481CCC77F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7FDDF7-7DF4-4ACD-9143-D481CCC77F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7FDDF7-7DF4-4ACD-9143-D481CCC77F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7FDDF7-7DF4-4ACD-9143-D481CCC77F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B85E1910-13DC-41A7-9DD4-FBEEE5AB3B29}
+	EndGlobalSection
+EndGlobal

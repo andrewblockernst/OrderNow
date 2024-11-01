@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - OrderNow</title>
+    <link rel="icon" href="./img/goette.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #responseMessage {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>OrderNow</h1>
+        <label for="productIds">IDs de Productos</label>
+        <input type="text" id="productIds" placeholder="Ingresa IDs separados por comas" required>
+        
+        <label for="quantities">Cantidades</label>
+        <input type="text" id="quantities" placeholder="Ingresa cantidades separadas por comas" required>
+
+        <button id = "orderButton">
+          <div>
+            <span>
+              <p>HACE TU ORDEN</p>
+            </span>
+          </div>
+          <div>
+            <span>
+              <p>aguante Scala :D</p>
+            </span>
+          </div>
+        </button>
+        <div id="responseMessage"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

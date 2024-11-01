@@ -1,0 +1,6 @@
+@order_now_pedido_HostAddress = http://localhost:5056
+
+GET {{order_now_pedido_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
