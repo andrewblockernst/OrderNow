@@ -5,7 +5,9 @@ document.getElementById('orderButton').addEventListener('click', async () => {
 
     // Limpiar el mensaje de respuesta previo
     const responseMessage = document.getElementById('responseMessage');
+    const loadingMessage = document.getElementById('loading');
     responseMessage.innerHTML = '';
+    loadingMessage.style.display = 'none'; // Ocultar el mensaje de carga
 
     // Validar que los campos no estén vacíos
     if (!productIds || !quantities) {
@@ -22,7 +24,9 @@ document.getElementById('orderButton').addEventListener('click', async () => {
 
     // Configurar la solicitud a la API
     try {
-        const response = await fetch("http://localhost:5056/api/orders", {
+        loadingMessage.style.display = 'block'; // Mostrar el mensaje de carga
+
+        const response = await fetch('http://localhost:5056/api/orders', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,12 +42,20 @@ document.getElementById('orderButton').addEventListener('click', async () => {
 
         // Leer la respuesta JSON
         const data = await response.json();
-        // Mostrar mensaje de éxito
-        responseMessage.innerHTML = `Orden realizada con éxito! ID de Orden: ${data.orderId}`;
-        responseMessage.style.color = 'green';
+
+        // Esperar 3 segundos antes de mostrar el estado de la orden
+        setTimeout(() => {
+            responseMessage.innerHTML = `Orden realizada con éxito! ID de Orden: ${data.orderId}`;
+            responseMessage.style.color = 'green';
+            loadingMessage.style.display = 'none'; // Ocultar el mensaje de carga
+        }, 3000);
+        
     } catch (error) {
-        // Mostrar mensaje de error
-        responseMessage.innerHTML = `Error: ${error.message}`;
-        responseMessage.style.color = 'red';
+        // Mostrar mensaje de error después de 3 segundos
+        setTimeout(() => {
+            responseMessage.innerHTML = `Error: ${error.message}`;
+            responseMessage.style.color = 'red';
+            loadingMessage.style.display = 'none'; // Ocultar el mensaje de carga
+        }, 3000);
     }
 });

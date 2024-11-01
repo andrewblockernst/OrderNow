@@ -25,6 +25,13 @@
             margin-top: 20px;
             font-weight: bold;
         }
+
+        #loading {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #1e90ff; /* Color azul para el texto */
+            display: none; /* Ocultar por defecto */
+        }
     </style>
 </head>
 <body>
@@ -36,19 +43,21 @@
         <label for="quantities">Cantidades</label>
         <input type="text" id="quantities" placeholder="Ingresa cantidades separadas por comas" required>
 
-        <button id = "orderButton">
-          <div>
-            <span>
-              <p>HACE TU ORDEN</p>
-            </span>
-          </div>
-          <div>
-            <span>
-              <p>aguante Scala :D</p>
-            </span>
-          </div>
+        <button id="orderButton">
+            <div>
+                <span>
+                    <p>HACE TU ORDEN</p>
+                </span>
+            </div>
+            <div>
+                <span>
+                    <p>aguante Scala :D</p>
+                </span>
+            </div>
         </button>
+        
         <div id="responseMessage"></div>
+        <div id="loading">Cargando...</div> <!-- Indicador de carga agregado -->
     </div>
     <script src="script.js"></script>
 </body>
