@@ -68,4 +68,4 @@ Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, por favor 
 
 ## Licencia
 
-Este proyecto está bajo la licencia [Nombre de la Licencia](enlace a la licencia).
+Este proyecto está bajo la licencia "BUBO's Company".
